@@ -14,7 +14,7 @@ const Todos = () => {
             className=" mt-4 flex justify-between items-center bg-zinc-800 py-2 px-1 rounded"
             key={todo.id}
           >
-            <div className=" text-white">{todo.text}</div>
+            <div className=" text-white" >{todo.text}</div>
             <button className=" bg-red-500 border-0 py-1 px-4 text-white focus:outline-none hover:bg-red-600 rounded text-md" onClick={()=>dispatch(removeTodo(todo.id))}>
               x
             </button>
