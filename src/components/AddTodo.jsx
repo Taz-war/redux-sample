@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../features/tood/todoSlice";
+import { addTodo, updateTodo } from "../features/tood/todoSlice";
 
-const AddTodo = () => {
-  const [input, setInput] = useState("");
-  const dispatch = useDispatch();
+const AddTodo = ({ input, setInput, addTodoHandler,editableObject }) => {
 
-  const addTodoHandler = (e) => {
-    e.preventDefault();
-    dispatch(addTodo(input));
-  };
   return (
     <div>
       <form onSubmit={addTodoHandler} className=" space-x-3 mt-12">
@@ -20,12 +14,12 @@ const AddTodo = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
-        <button
-          type="submit"
-          className=" text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-        >
-          Add todo
-        </button>
+          <button
+            type="submit"
+            className=" text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+          >
+            {editableObject ? "Update":"Add todo"}
+          </button>
       </form>
     </div>
   );
